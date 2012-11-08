@@ -10,7 +10,7 @@ virtualenv.
 ## Install
 
 ```bash
-$ curl https://github.com/HubSpot/virtualenvchdir/tree/master/virtualenvchdir.sh > ~/.virtualenvchdir.sh
+$ curl https://raw.github.com/HubSpot/virtualenvchdir/master/virtualenvchdir.sh > ~/.virtualenvchdir.sh
 $ echo ". ~/.virtualenvchdir.sh" >> ~/.bash_profile # (bash)
 $ echo ". ~/.virtualenvchdir.sh" >> ~/.zshrc # (zsh)
 ```
