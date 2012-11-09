@@ -8,11 +8,10 @@
 _venv_quick_workon() {
     # Only run workon if the new virtualenv is different from this one.
     VIRTUALENV="$1"
-    echo $VIRTUALENV
-    if [[ -z "$VIRTUAL_ENV" ]]; then
+    if [ -z "$VIRTUAL_ENV" ]; then
         workon $VIRTUALENV
         export _VIRTUALENV_AUTO_SET=1
-    elif [[ $VIRTUALENV != $(basename $VIRTUAL_ENV) ]]; then
+    elif [ $VIRTUALENV != $(basename $VIRTUAL_ENV) ]; then
         workon $VIRTUALENV
         export _VIRTUALENV_AUTO_SET=1
     fi
@@ -20,20 +19,20 @@ _venv_quick_workon() {
 
 
 _venv_change_virtualenv() {
-    CURRENT_DIR=$(pwd)
+    local _current_dir=$(pwd)
     while :; do
-        FILE="$CURRENT_DIR"/.venv
-        if [[ -e "$FILE" ]]; then
+        FILE="$_current_dir"/.venv
+        if [ -e "$FILE" ]; then
             _venv_quick_workon $(cat "$FILE")
             return
         fi
-        if [[ $CURRENT_DIR = "/" ]]; then
+        if [ $_current_dir = "/" ]; then
             break
         fi
-        CURRENT_DIR=$(dirname "$CURRENT_DIR")
+        _current_dir=$(dirname "$_current_dir")
     done
 
-    if [[ -n "$_VIRTUALENV_AUTO_SET" ]]; then
+    if [ -n "$_VIRTUALENV_AUTO_SET" ]; then
         deactivate &>/dev/null
         unset _VIRTUALENV_AUTO_SET
     fi
