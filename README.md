@@ -9,7 +9,7 @@ virtualenv.
 
 ### Install
 
-    $ curl -L https://raw.github.com/HubSpot/virtualenvchdir/master/virtualenvchdir.sh > ~/.virtualenvchdir.sh
+    $ curl -fsSL https://raw.github.com/HubSpot/virtualenvchdir/master/virtualenvchdir.sh > ~/.virtualenvchdir.sh
     $ echo ". ~/.virtualenvchdir.sh" >> ~/.bash_profile # (bash)
     $ echo ". ~/.virtualenvchdir.sh" >> ~/.zshrc # (zsh)
 
